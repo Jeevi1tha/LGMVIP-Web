@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form</title>
+<style>
+.header {
+  background-color: blue;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+h2{
+	color:blue;
+	text-align: center;
+}
+h4{
+   color:black;
+   text-align:bottom;
+   position: absolute;
+   bottom: 0;
+   right: 0;
+}
+
+table{
+	width:500px;
+	height:200px;
+}
+
+th, td {
+  border-style: inset;
+}
+
+</style>
+<script>
+function display() {
+				var name =
+					document.forms["form1"]["yourname"];
+				var address =
+					document.forms["form1"]["address"];
+				var phone =
+					document.forms["form1"]["phone"];
+				
+				if (name.value == "") {
+					window.alert("Please enter your name.");
+					name.focus();
+					return false;
+				}
+
+				if (address.value == "") {
+					window.alert("Please enter your address.");
+					address.focus();
+					return false;
+				}
+				
+				if (phone.value == ""|| phone.value.length!=10) {
+					window.alert(
+					"Please enter your phone number correctly.");
+					phone.focus();
+					return false;
+				}
+  DispWin = window.open('displaying details','NewWin', 'toolbar=no,status=no,width=2024,height=1000')
+  message = "<title>details</title><h1>Thank you for filling the form. Here are the details you filled!<h1><br><ul><li><b>NAME: </b>" + document.form1.yourname.value;
+  message += "<li><b>LOCATION: </b>" + document.form1.address.value;
+  message += "<li><b>PHONE: </b>" + document.form1.phone.value + "</ul>";
+  DispWin.document.write(message);
+}
+</script>
+<div id="myDIV" class="header">
+<h1>THE FORM</h1>
+</div>
+<h2>Enter the following information. When you press the button,
+the data you entered will be displayed in a pop-up window.</h2>
+</head>
+<body>
+<form name="form1">
+<table align=center>
+<tr>
+<th><b>Name:</b> </th>
+<td><input TYPE="TEXT" SIZE="10" NAME="yourname"></td>
+</tr>
+<tr>
+<th><b>Location:</b> </th>
+<td><input TYPE="TEXT" SIZE="10" NAME="address"></td>
+</tr>
+<tr>
+<th><b>Phone:</b> </th>
+<td> <input TYPE="TEXT" SIZE="10" NAME="phone"></td>
+</tr>
+<tr>
+
+<th><input TYPE="RESET" VALUE="Refill"></th>
+<td><p><input TYPE="BUTTON" VALUE="Submit the form to Display!" onClick="display();"></p></td>
+
+</tr>
+</table>
+</form>
+</body>
+<footer>
+<h4>Copyright &copy; 2022 Jeevitha    .    </h4>
+</footer>
+</html>
