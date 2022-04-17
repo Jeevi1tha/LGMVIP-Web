@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+<style>
+.keys {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+.button {
+    height: 60px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #c4c4c4;
+	font-size: 2rem;
+	color: black;
+}
+.button:hover {
+	background-color: #eaeaea;
+}
+.operator {
+	color: white;
+	font-size: 2rem;	
+    background-color: blue;
+}
+.clear {
+	background-color: #f0595f;
+	font-size: 2rem;
+    color: #fff;
+	width: 330px;
+	height: 60px; 
+}
+.equal-sign {
+	background-color: #25a8e0;
+	color: #fff;
+}
+.screen{
+	background-color:rgb(171, 219, 231);
+	justify-content: center;
+	color: black;
+	font-size:2em;
+	width: 50%;
+	height: 30%;
+	cursor: default;
+	padding: 10px; 
+	padding-left: 45%;
+	margin: auto;
+	margin-bottom: 10px;
+}
+h4{
+   color:black;
+   text-align:bottom;
+   position: absolute;
+   bottom: 0;
+   right: 0;
+}
+</style>
+<script>
+function display(val){
+	document.getElementById('result').value += val
+	return val
+}
+function solve(){
+	let x = document.getElementById('result').value
+	let y = eval(x);
+	document.getElementById('result').value = y
+	return y
+}
+function clearScreen(){
+	document.getElementById('result').value = ''
+}
+</script>
+</head>
+<body>
+<h1 style="text-align:center">Calculator Application</h1>
+	<br>
+	<table>
+		<tr>
+		<td width=1350px><input type='text' id='result' class ='screen' style="text-align: right;"></td>
+		<td><input type='button' value = 'Clear' onclick="clearScreen()" class="clear"/></td>
+		</tr>
+	</table>
+
+<div class="keys">
+	<input type="button" value="7" class="button" onClick="display('7')"></input>
+	<input type="button" value="8" class="button " onClick="display('8')"></input>
+	<input type="button" value="9" class="button" onClick="display('9')"></input>
+	<input type="button" value="/" class="operator" onClick="display('/')"></input>
+	<input type="button" value="4" class="button" onClick="display('4')"></input>
+	<input type="button" value="5" class="button" onClick="display('5')"></input>
+	<input type="button" value="6" class="button" onClick="display('6')"></input>
+	<input type="button" value="*" class="operator" onClick="display('*')"></input>
+	<input type="button" value="1" class="button" onClick="display('1')"></input>
+	<input type="button" value="2" class="button" onClick="display('2')"></input>
+	<input type="button" value="3" class="button" onClick="display('3')"></input>
+	<input type="button" value="-" class="operator" onClick="display('-')"></input>
+	<input type="button" value="0" class="button" onClick="display('0')"></input>
+	<input type="button" value="." class="button" onClick="display('.')"></input>
+	<input type="button" value= "=" class="button equal-sign" onClick="solve()"></input>
+	<input type="button" value="+" class="operator" onClick="display('+')"></input>
+</div> 
+</body>
+<footer>
+<h4> &copy; 2022 Jeevitha    .    </h4>
+</footer>
+</html>
